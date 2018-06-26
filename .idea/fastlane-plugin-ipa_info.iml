@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="RUBY_MODULE" version="4">
+  <component name="ModuleRunConfigurationManager">
+    <shared />
+  </component>
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/vendor/bundle" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="CFPropertyList (v3.0.0, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="addressable (v2.5.2, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="atomos (v0.1.2, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="babosa (v1.0.2, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v1.16.1, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="claide (v1.0.2, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="colored (v1.2, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="colored2 (v3.1.2, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="commander-fastlane (v4.4.6, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="declarative (v0.0.10, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="declarative-option (v0.1.0, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="domain_name (v0.5.20180417, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="emoji_regex (v0.1.1, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="excon (v0.62.0, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="faraday-cookie_jar (v0.0.6, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="faraday_middleware (v0.12.2, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="fastimage (v2.1.3, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="fastlane (v2.95.0, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="gh_inspector (v1.1.3, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="googleauth (v0.6.2, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="highline (v1.7.10, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="http-cookie (v1.0.3, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="httpclient (v2.8.3, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="json (v2.1.0, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="jwt (v2.1.0, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="little-plugger (v1.1.4, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="logging (v2.2.2, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="memoist (v0.16.0, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="mime-types (v3.1, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="mime-types-data (v3.2016.0521, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="mini_magick (v4.5.1, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.13.1, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="multi_xml (v0.6.0, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="multipart-post (v2.0.0, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="nanaimo (v0.2.5, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="os (v0.9.6, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="plist (v3.4.0, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="public_suffix (v2.0.5, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rake (v10.4.2, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="representable (v3.0.4, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rouge (v2.0.7, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rubyzip (v1.2.1, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="security (v0.1.3, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="signet (v0.8.1, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="slack-notifier (v2.3.2, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="terminal-notifier (v1.8.0, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="terminal-table (v1.8.0, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="tty-cursor (v0.5.0, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="tty-screen (v0.6.4, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="tty-spinner (v0.8.0, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="uber (v0.1.0, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="unf (v0.1.4, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="unf_ext (v0.0.7.5, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="word_wrap (v1.0.0, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="xcodeproj (v1.5.9, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="xcpretty (v0.2.8, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="xcpretty-travis-formatter (v1.0.0, rbenv: 2.3.4) [gem]" level="application" />
+  </component>
+</module>
