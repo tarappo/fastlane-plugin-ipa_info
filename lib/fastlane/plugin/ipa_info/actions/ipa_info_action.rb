@@ -5,7 +5,7 @@ module Fastlane
     class IpaInfoAction < Action
       def self.run(params)
         @file = params[:ipa_file]
-        UI.user_error! 'You have to set path an ipa file' unless @file
+        UI.user_error!('You have to set path an ipa file') unless @file
 
         begin
           ipa_info = IpaAnalyzer::Analyzer.new(@file)
@@ -13,18 +13,18 @@ module Fastlane
           result = ipa_info.collect_info_plist_info[:content]
           ipa_info.close
         rescue e
-          UI.user_error! e.message
+          UI.user_error!(e.message)
         end
 
         rows = []
-        [ %w[ DTXcode Xcode ],
-          %w[ DTXcodeBuild Build ],
-          %w[ BuildMachineOSBuild MacOSBuild ] ].each do |key, name|
-          rows << [ name, result[key] ]
+        [%w[DTXcode Xcode],
+         %w[DTXcodeBuild Build],
+         %w[BuildMachineOSBuild MacOSBuild]].each do |key, name|
+          rows << [name, result[key]]
         end
 
         summary_table = Terminal::Table.new(
-            title: "Info Plist",
+            title: "Info.Plist",
             headings: ["Name", "Value"],
             rows: FastlaneCore::PrintTable.transform_output(rows)
         ).to_s
@@ -60,7 +60,7 @@ module Fastlane
       end
 
       def self.is_supported?(platform)
-        [ :ios ].include?(platform)
+        [:ios].include?(platform)
       end
     end
   end
