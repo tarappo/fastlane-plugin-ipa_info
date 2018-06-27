@@ -1,15 +1,38 @@
-require 'fastlane/action'
-require_relative '../helper/ipa_info_helper'
+require "ipa_analyzer"
 
 module Fastlane
   module Actions
     class IpaInfoAction < Action
       def self.run(params)
-        UI.message("The ipa_info plugin is working!")
+        @file = params[:ipa_file]
+        UI.user_error! 'You have to set path an ipa file' unless @file
+
+        begin
+          ipa_info = IpaAnalyzer::Analyzer.new(@file)
+          ipa_info.open!
+          result = ipa_info.collect_info_plist_info[:content]
+          ipa_info.close
+        rescue e
+          UI.user_error! e.message
+        end
+
+        rows = []
+        [ %w[ DTXcode Xcode ],
+          %w[ DTXcodeBuild Build ],
+          %w[ BuildMachineOSBuild MacOSBuild ] ].each do |key, name|
+          rows << [ name, result[key] ]
+        end
+
+        summary_table = Terminal::Table.new(
+            title: "Info Plist",
+            headings: ["Name", "Value"],
+            rows: FastlaneCore::PrintTable.transform_output(rows)
+        ).to_s
+        puts(summary_table)
       end
 
       def self.description
-        "show ipa info"
+        "Show information of an ipa file."
       end
 
       def self.authors
@@ -17,20 +40,22 @@ module Fastlane
       end
 
       def self.return_value
-        # If your method provides a return value, you can describe here what it does
       end
 
       def self.details
-        "show ipa info"
+        "Show information of an ipa file."
       end
 
       def self.available_options
         [
-          # FastlaneCore::ConfigItem.new(key: :your_option,
-          #                         env_name: "IPA_INFO_YOUR_OPTION",
-          #                      description: "A description of your option",
-          #                         optional: false,
-          #                             type: String)
+            FastlaneCore::ConfigItem.new(key: :ipa_file,
+                                         env_name: 'IPA_FILE',
+                                         description: 'Path to your ipa file. Optional if you use the `gym`, `ipa` or `xcodebuild` action. ',
+                                         default_value: Actions.lane_context[SharedValues::IPA_OUTPUT_PATH] || Dir['*.ipa'].last,
+                                         optional: true,
+                                         verify_block: proc do |value|
+                                           raise "Couldn't find ipa file".red unless File.exist?(value)
+                                         end)
         ]
       end
 
