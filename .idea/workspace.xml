@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eaf2f2a0-cf64-4d01-8671-87100589ee76" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/fastlane-plugin-ipa_info.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/fastlane-plugin-ipa_info.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastlane-plugin-ipa_info.gemspec" beforeDir="false" afterPath="$PROJECT_DIR$/fastlane-plugin-ipa_info.gemspec" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fastlane/Fastfile" beforeDir="false" afterPath="$PROJECT_DIR$/fastlane/Fastfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastlane/report.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fastlane/report.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/fastlane/plugin/ipa_info/actions/ipa_info_action.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/fastlane/plugin/ipa_info/actions/ipa_info_action.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/fastlane/plugin/ipa_info/helper/ipa_info_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/fastlane/plugin/ipa_info/helper/ipa_info_helper.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ipa_info_action.rb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ipa_info_action.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/fastlane/plugin/ipa_info/actions/ipa_info_action.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="15">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -47,7 +41,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Fastfile" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Fastfile" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fastlane/Fastfile">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
@@ -182,12 +176,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1530048169609</updated>
-      <workItem from="1530048175747" duration="6252000" />
+      <workItem from="1530048175747" duration="6573000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6252000" />
+    <option name="totallyTimeSpent" value="6573000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="402" y="267" width="1400" height="1000" extended-state="0" />
@@ -250,6 +244,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/fastlane/Fastfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/fastlane/plugin/ipa_info/helper/ipa_info_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -259,15 +260,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/fastlane/plugin/ipa_info/actions/ipa_info_action.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fastlane/Fastfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        <state relative-caret-position="15">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
