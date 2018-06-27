@@ -24,9 +24,9 @@ module Fastlane
         end
 
         summary_table = Terminal::Table.new(
-            title: "Info.Plist",
-            headings: ["Name", "Value"],
-            rows: FastlaneCore::PrintTable.transform_output(rows)
+          title: "Info.Plist",
+          headings: ["Name", "Value"],
+          rows: FastlaneCore::PrintTable.transform_output(rows)
         ).to_s
         puts(summary_table)
       end
@@ -48,14 +48,14 @@ module Fastlane
 
       def self.available_options
         [
-            FastlaneCore::ConfigItem.new(key: :ipa_file,
-                                         env_name: 'IPA_FILE',
-                                         description: 'Path to your ipa file. Optional if you use the `gym`, `ipa` or `xcodebuild` action. ',
-                                         default_value: Actions.lane_context[SharedValues::IPA_OUTPUT_PATH] || Dir['*.ipa'].last,
-                                         optional: true,
-                                         verify_block: proc do |value|
-                                           raise "Couldn't find ipa file".red unless File.exist?(value)
-                                         end)
+          FastlaneCore::ConfigItem.new(key: :ipa_file,
+                                       env_name: 'IPA_FILE',
+                                       description: 'Path to your ipa file. Optional if you use the `gym`, `ipa` or `xcodebuild` action. ',
+                                       default_value: Actions.lane_context[SharedValues::IPA_OUTPUT_PATH] || Dir['*.ipa'].last,
+                                       optional: true,
+                                       verify_block: proc do |value|
+                                         raise "Couldn't find ipa file".red unless File.exist?(value)
+                                       end)
         ]
       end
 
