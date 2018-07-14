@@ -17,11 +17,20 @@ module Fastlane
         end
 
         rows = []
+        # show original info
         [%w[DTXcode Xcode],
-         %w[DTXcodeBuild XcodeBuild],
-         %w[BuildMachineOSBuild MacOSBuild]].each do |key, name|
+         %w[DTXcodeBuild XcodeBuild]].each do |key, name|
           rows << [name, result[key]]
         end
+
+        # add os name and version
+        [%w[BuildMachineOSBuild MacOSBuild]].each do |key, name|
+          mac_os_build = result[key]
+          mac_os_version = Helper::IpaInfoHelper.macos_build_to_macos_version(build: mac_os_build)
+          mac_os_name = Helper::IpaInfoHelper.macos_version_to_os_name(version: mac_os_version)
+          rows << [name, "#{mac_os_name} #{mac_os_version} (#{mac_os_build})"]
+        end
+
 
         summary_table = Terminal::Table.new(
             title: "Info.Plist",
