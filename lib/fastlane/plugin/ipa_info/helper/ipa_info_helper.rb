@@ -34,6 +34,8 @@ module Fastlane
           "10.12.1"
         when "16A323" then
           "10.12.1"
+        else
+          "UnKnown"
         end
       end
 
@@ -45,6 +47,8 @@ module Fastlane
           "macOS High Sierra"
         when 12
           "macOS Sierra"
+        else
+          "UnKnown"
         end
       end
 

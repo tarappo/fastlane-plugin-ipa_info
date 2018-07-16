@@ -24,7 +24,7 @@ module Fastlane
         end
 
         # add os name and version
-        [%w[BuildMachineOSBuild MacOSBuild]].each do |key, name|
+        [%w[BuildMachineOSBuild MacOS]].each do |key, name|
           mac_os_build = result[key]
           mac_os_version = Helper::IpaInfoHelper.macos_build_to_macos_version(build: mac_os_build)
           mac_os_name = Helper::IpaInfoHelper.macos_version_to_os_name(version: mac_os_version)
