@@ -12,7 +12,7 @@ Style/SafeNavigation:
 Performance/RegexpMatch:
   Enabled: false
 Performance/StringReplacement:
-  Enabled: false
+  Enabled: falseTargetRubyVersion
 Style/NumericPredicate:
   Enabled: false
 Metrics/BlockLength:
@@ -121,7 +121,7 @@ Layout/SpaceAroundOperators:
   Exclude:
   - "**/spec/actions_specs/xcodebuild_spec.rb"
 AllCops:
-  TargetRubyVersion: 2.0
+  TargetRubyVersion: 2.4
   Include:
   - "*/lib/assets/*Template"
   - "*/lib/assets/*TemplateAndroid"
