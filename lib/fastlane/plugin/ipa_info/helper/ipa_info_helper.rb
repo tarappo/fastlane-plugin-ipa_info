@@ -34,6 +34,8 @@ module Fastlane
           "10.12.1"
         when "16A323" then
           "10.12.1"
+        else
+          "UnKnown"
         end
       end
 
@@ -45,9 +47,18 @@ module Fastlane
           "macOS High Sierra"
         when 12
           "macOS Sierra"
+        else
+          "UnKnown"
         end
       end
 
+      def self.summary_table(title:, rows:)
+        Terminal::Table.new(
+          title: title,
+          headings: ["Name", "Value"],
+          rows: FastlaneCore::PrintTable.transform_output(rows)
+        ).to_s
+      end
     end
   end
 end

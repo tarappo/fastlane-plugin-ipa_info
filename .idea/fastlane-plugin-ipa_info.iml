@@ -47,7 +47,7 @@
     <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.13.1, rbenv: 2.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="multi_xml (v0.6.0, rbenv: 2.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="multipart-post (v2.0.0, rbenv: 2.3.4) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="nanaimo (v0.2.5, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="nanaimo (v0.2.6, rbenv: 2.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="naturally (v2.2.0, rbenv: 2.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="os (v0.9.6, rbenv: 2.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="plist (v3.4.0, rbenv: 2.3.4) [gem]" level="application" />
@@ -63,8 +63,8 @@
     <orderEntry type="library" scope="PROVIDED" name="slack-notifier (v2.3.2, rbenv: 2.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="terminal-notifier (v1.8.0, rbenv: 2.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="terminal-table (v1.8.0, rbenv: 2.3.4) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="tty-cursor (v0.5.0, rbenv: 2.3.4) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="tty-screen (v0.6.4, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="tty-cursor (v0.6.0, rbenv: 2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="tty-screen (v0.6.5, rbenv: 2.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tty-spinner (v0.8.0, rbenv: 2.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="uber (v0.1.0, rbenv: 2.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="unf (v0.1.4, rbenv: 2.3.4) [gem]" level="application" />
