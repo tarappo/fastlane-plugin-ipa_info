@@ -16,8 +16,8 @@ module Fastlane
           UI.user_error!(e.message)
         end
 
+        # show build environment info
         rows = []
-        # show original info
         [%w[DTXcode Xcode],
          %w[DTXcodeBuild XcodeBuild]].each do |key, name|
           rows << [name, result[key]]
@@ -31,12 +31,18 @@ module Fastlane
           rows << [name, "#{mac_os_name} #{mac_os_version} (#{mac_os_build})"]
         end
 
+        summary_table = Helper::IpaInfoHelper.summary_table(title: "Build Environment", rows: rows)
+        puts(summary_table)
 
-        summary_table = Terminal::Table.new(
-            title: "Info.Plist",
-            headings: ["Name", "Value"],
-            rows: FastlaneCore::PrintTable.transform_output(rows)
-        ).to_s
+        # show ipa info
+        rows = []
+        [%w[CFBundleName BundleName],
+         %w[CFBundleShortVersionString Version],
+         %w[CFBundleVersion BuildVersion]].each do |key, name|
+          rows << [name, result[key]]
+        end
+
+        summary_table = Helper::IpaInfoHelper.summary_table(title: "ipa Information", rows: rows)
         puts(summary_table)
       end
 
