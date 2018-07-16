@@ -54,12 +54,11 @@ module Fastlane
 
       def self.summary_table(title:, rows:)
         Terminal::Table.new(
-            title: title,
-            headings: ["Name", "Value"],
-            rows: FastlaneCore::PrintTable.transform_output(rows)
+          title: title,
+          headings: ["Name", "Value"],
+          rows: FastlaneCore::PrintTable.transform_output(rows)
         ).to_s
       end
-
     end
   end
 end
