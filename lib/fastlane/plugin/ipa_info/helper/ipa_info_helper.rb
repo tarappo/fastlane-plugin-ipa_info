@@ -37,8 +37,7 @@ module Fastlane
       def self.certificate_information(provision_info_result:)
         rows = []
         [%w[TeamName TeamName],
-         %w[Name ProvisioningProfileName],
-         %w[TeamName TeamName]].each do |key, name|
+         %w[Name ProvisioningProfileName]].each do |key, name|
           rows << [name, provision_info_result[key]]
         end
 
