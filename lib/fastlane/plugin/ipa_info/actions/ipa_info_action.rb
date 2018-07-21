@@ -1,4 +1,5 @@
-require "ipa_analyzer"
+require 'ipa_analyzer'
+require 'json'
 
 module Fastlane
   module Actions
@@ -10,39 +11,26 @@ module Fastlane
         begin
           ipa_info = IpaAnalyzer::Analyzer.new(@file)
           ipa_info.open!
-          result = ipa_info.collect_info_plist_info[:content]
+          ipa_info_result = ipa_info.collect_info_plist_info[:content]
+          provision_info_result = ipa_info.collect_provision_info[:content]
           ipa_info.close
         rescue e
           UI.user_error!(e.message)
         end
 
         # show build environment info
-        rows = []
-        [%w[DTXcode Xcode],
-         %w[DTXcodeBuild XcodeBuild]].each do |key, name|
-          rows << [name, result[key]]
-        end
-
-        # add os name and version
-        [%w[BuildMachineOSBuild MacOS]].each do |key, name|
-          mac_os_build = result[key]
-          mac_os_version = Helper::IpaInfoHelper.macos_build_to_macos_version(build: mac_os_build)
-          mac_os_name = Helper::IpaInfoHelper.macos_version_to_os_name(version: mac_os_version)
-          rows << [name, "#{mac_os_name} #{mac_os_version} (#{mac_os_build})"]
-        end
-
+        rows = Helper::IpaInfoHelper.build_environment_information(ipa_info_result: ipa_info_result)
         summary_table = Helper::IpaInfoHelper.summary_table(title: "Build Environment", rows: rows)
         puts(summary_table)
 
         # show ipa info
-        rows = []
-        [%w[CFBundleName BundleName],
-         %w[CFBundleShortVersionString Version],
-         %w[CFBundleVersion BuildVersion]].each do |key, name|
-          rows << [name, result[key]]
-        end
-
+        rows = Helper::IpaInfoHelper.ipa_information(ipa_info_result: ipa_info_result)
         summary_table = Helper::IpaInfoHelper.summary_table(title: "ipa Information", rows: rows)
+        puts(summary_table)
+
+        # certificate info
+        rows = Helper::IpaInfoHelper.certificate_information(provision_info_result: provision_info_result)
+        summary_table = Helper::IpaInfoHelper.summary_table(title: "Mobile Provision", rows: rows)
         puts(summary_table)
       end
 
