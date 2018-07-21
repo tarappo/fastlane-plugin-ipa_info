@@ -69,6 +69,17 @@ end
 | Version      | 1.2.0 |
 | BuildVersion | 37    |
 +--------------+-------+
+
++-------------------------+---------------------------+
+|                  Mobile Provision                   |
++-------------------------+---------------------------+
+| Name                    | Value                     |
++-------------------------+---------------------------+
+| TeamName                | Your Team Name            |
+| ProvisioningProfileName | Your Prifle Name          |
+| ExpirationDate          | 2019-03-08T00:11:53+00:00 |
+| DeadLine                | 230 day                   |
++-------------------------+---------------------------+
 ```
 
 ## Run tests for this plugin
