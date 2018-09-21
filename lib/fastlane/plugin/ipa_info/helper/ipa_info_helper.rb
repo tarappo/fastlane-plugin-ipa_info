@@ -60,6 +60,8 @@ module Fastlane
         # reference https://support.apple.com/ja-jp/HT201260
         case build
           # macOS High Sierra
+        when "17G65" then
+          "10.13.6"
         when "17F77" then
           "10.13.5"
         when "17E199", "17E201" then
