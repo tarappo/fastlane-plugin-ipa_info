@@ -64,7 +64,7 @@ module Fastlane
           "10.13.6"
         when "17F77" then
           "10.13.5"
-        when "17E199", "17E201" then
+        when "17E199", "17E201", "17E202" then
           "10.13.4"
         when "17D47", "17D102", "17D2047", "17D2102" then
           "10.13.3"
