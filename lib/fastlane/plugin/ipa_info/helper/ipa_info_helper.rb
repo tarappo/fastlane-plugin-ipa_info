@@ -59,7 +59,7 @@ module Fastlane
       def self.macos_build_to_macos_version(build:)
         # reference https://support.apple.com/ja-jp/HT201260
         case build
-          #macOS Mojave
+          # macOS Mojave
         when "18E226" then
           "10.14.4"
         when "18D42", "18D109" then
