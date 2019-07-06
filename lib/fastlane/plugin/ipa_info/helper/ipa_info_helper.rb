@@ -55,18 +55,20 @@ module Fastlane
       end
 
       # macOS build number to macOS version
-      # @return macOS version(Sierra, High Sierra only)
+      # @return macOS version(High Sierra or higher)
       def self.macos_build_to_macos_version(build:)
         # reference https://support.apple.com/ja-jp/HT201260
         case build
           # macOS Mojave
-        when "18E226" then
+        when "18F132" then
+          "10.14.5"
+        when "18E226", "18E227" then
           "10.14.4"
-        when "18D42", "18D109" then
+        when "18D42", "18D43", "18D109" then
           "10.14.3"
         when "18C54" then
           "10.14.2"
-        when "18B75" then
+        when "18B75", "18B2107", "18B3094" then
           "10.14.1"
         when "18A391" then
           "10.14"
@@ -85,21 +87,6 @@ module Fastlane
           "10.13.1"
         when "17A365", "17A405" then
           "10.13"
-          # macOS Sierra
-        when "16G29", "16G1036", "16G1114", "16G1212" then
-          "10.12.6"
-        when "16F73" then
-          "10.12.5"
-        when "16E195" then
-          "10.12.4"
-        when "16D32" then
-          "10.12.3"
-        when "16C67" then
-          "10.12.2"
-        when "16B2555", "16B2557" then
-          "10.12.1"
-        when "16A323" then
-          "10.12.1"
         else
           "UnKnown"
         end
@@ -109,6 +96,8 @@ module Fastlane
         minor_version = version.split(".")[1].to_i
         # reference https://support.apple.com/ja-jp/HT201260
         case minor_version
+        when 15
+          "macOS Catalina"
         when 14
           "macOS Mojave"
         when 13
