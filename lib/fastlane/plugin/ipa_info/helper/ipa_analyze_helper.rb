@@ -19,8 +19,8 @@ module Fastlane
         UI.user_error!("Info.plist not found in #{ipa_path}") unless info_plist_entry
 
         return {
-            :provisiong_info => self.analyze_mobileprovisioning(mobileprovision_entry, ipa_zipfile),
-            :plist_info => self.analyze_info_plist(info_plist_entry, ipa_zipfile)
+            provisiong_info: self.analyze_mobileprovisioning(mobileprovision_entry, ipa_zipfile),
+            plist_info: self.analyze_info_plist(info_plist_entry, ipa_zipfile)
         }
       end
 
@@ -72,11 +72,12 @@ module Fastlane
         return result
       end
 
-      private
       # return app folder path
       def self.find_app_folder_path_in_ipa(ipa_path)
         return "Payload/#{File.basename(ipa_path, File.extname(ipa_path))}.app"
       end
+
+      private_class_method :find_app_folder_path_in_ipa
     end
   end
 end
