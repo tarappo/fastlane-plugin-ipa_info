@@ -11,17 +11,17 @@ module Fastlane
         info_result = Helper::IpaAnalyzeHelper.analyze(@file)
 
         # show build environment info
-        rows = Helper::IpaInfoHelper.build_environment_information(ipa_info_result: info_result[:plist_info][:content])
+        rows = Helper::IpaInfoHelper.build_environment_information(ipa_info_result: info_result[:plist_info])
         summary_table = Helper::IpaInfoHelper.summary_table(title: "Build Environment", rows: rows)
         puts(summary_table)
 
         # show ipa info
-        rows = Helper::IpaInfoHelper.ipa_information(ipa_info_result: info_result[:plist_info][:content])
+        rows = Helper::IpaInfoHelper.ipa_information(ipa_info_result: info_result[:plist_info])
         summary_table = Helper::IpaInfoHelper.summary_table(title: "ipa Information", rows: rows)
         puts(summary_table)
 
         # certificate info
-        rows = Helper::IpaInfoHelper.certificate_information(provision_info_result: info_result[:provisiong_info][:content])
+        rows = Helper::IpaInfoHelper.certificate_information(provision_info_result: info_result[:provisiong_info])
         summary_table = Helper::IpaInfoHelper.summary_table(title: "Mobile Provision", rows: rows)
         puts(summary_table)
       end
