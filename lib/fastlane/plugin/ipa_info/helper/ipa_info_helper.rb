@@ -14,6 +14,7 @@ module Fastlane
         # add os name and version
         [%w[BuildMachineOSBuild MacOS]].each do |key, name|
           mac_os_build = ipa_info_result[key]
+
           mac_os_version = self.macos_build_to_macos_version(build: mac_os_build)
           mac_os_name = self.macos_version_to_os_name(version: mac_os_version)
           rows << [name, "#{mac_os_name} #{mac_os_version} (#{mac_os_build})"]
@@ -57,10 +58,18 @@ module Fastlane
       # macOS build number to macOS version
       # @return macOS version(High Sierra or higher)
       def self.macos_build_to_macos_version(build:)
-        # reference https://support.apple.com/ja-jp/HT201260
         case build
+          # macOS Catalina
+        when "19C57" then
+          "10.15.2"
+        when "19B88" then
+          "10.15.1"
+        when "18G84", "18G103", "18G1012" then
+          "10.15"
           # macOS Mojave
-        when "18F132" then
+        when "18G84", "18G103", "18G1012" then
+          "10.14.6"
+        when "18F132", "18F203" then
           "10.14.5"
         when "18E226", "18E227" then
           "10.14.4"
