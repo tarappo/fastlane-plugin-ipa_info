@@ -64,7 +64,7 @@ module Fastlane
           "10.15.2"
         when "19B88" then
           "10.15.1"
-        when "18G84", "18G103", "18G1012" then
+        when "19A583", "19A602" then
           "10.15"
           # macOS Mojave
         when "18G84", "18G103", "18G1012" then
