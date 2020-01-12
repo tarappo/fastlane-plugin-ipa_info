@@ -1,4 +1,3 @@
-require 'ipa_analyzer'
 require 'json'
 
 module Fastlane
@@ -8,28 +7,21 @@ module Fastlane
         @file = params[:ipa_file]
         UI.user_error!('You have to set path an ipa file') unless @file
 
-        begin
-          ipa_info = IpaAnalyzer::Analyzer.new(@file)
-          ipa_info.open!
-          ipa_info_result = ipa_info.collect_info_plist_info[:content]
-          provision_info_result = ipa_info.collect_provision_info[:content]
-          ipa_info.close
-        rescue e
-          UI.user_error!(e.message)
-        end
+        # result
+        info_result = Helper::IpaAnalyzeHelper.analyze(@file)
 
         # show build environment info
-        rows = Helper::IpaInfoHelper.build_environment_information(ipa_info_result: ipa_info_result)
+        rows = Helper::IpaInfoHelper.build_environment_information(ipa_info_result: info_result[:plist_info])
         summary_table = Helper::IpaInfoHelper.summary_table(title: "Build Environment", rows: rows)
         puts(summary_table)
 
         # show ipa info
-        rows = Helper::IpaInfoHelper.ipa_information(ipa_info_result: ipa_info_result)
+        rows = Helper::IpaInfoHelper.ipa_information(ipa_info_result: info_result[:plist_info])
         summary_table = Helper::IpaInfoHelper.summary_table(title: "ipa Information", rows: rows)
         puts(summary_table)
 
         # certificate info
-        rows = Helper::IpaInfoHelper.certificate_information(provision_info_result: provision_info_result)
+        rows = Helper::IpaInfoHelper.certificate_information(provision_info_result: info_result[:provisiong_info])
         summary_table = Helper::IpaInfoHelper.summary_table(title: "Mobile Provision", rows: rows)
         puts(summary_table)
       end
