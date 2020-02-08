@@ -60,6 +60,8 @@ module Fastlane
       def self.macos_build_to_macos_version(build:)
         case build
           # macOS Catalina
+        when "19D76" then
+          "10.15.3"
         when "19C57" then
           "10.15.2"
         when "19B88" then
