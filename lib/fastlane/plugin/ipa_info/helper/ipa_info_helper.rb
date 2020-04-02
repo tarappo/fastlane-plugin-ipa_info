@@ -8,6 +8,7 @@ module Fastlane
         rows = []
         [%w[DTXcode Xcode],
          %w[DTXcodeBuild XcodeBuild]].each do |key, name|
+          ENV["FL_#{name.upcase}"] = ipa_info_result[key]
           rows << [name, ipa_info_result[key]]
         end
 
@@ -29,6 +30,7 @@ module Fastlane
         [%w[CFBundleName BundleName],
          %w[CFBundleShortVersionString Version],
          %w[CFBundleVersion BuildVersion]].each do |key, name|
+          ENV["FL_#{name.upcase}"] = ipa_info_result[key]
 
           rows << [name, ipa_info_result[key]]
         end
