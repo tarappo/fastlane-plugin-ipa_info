@@ -29,6 +29,7 @@ module Fastlane
         [%w[CFBundleName BundleName],
          %w[CFBundleShortVersionString Version],
          %w[CFBundleVersion BuildVersion]].each do |key, name|
+
           rows << [name, ipa_info_result[key]]
         end
 
@@ -60,16 +61,18 @@ module Fastlane
       def self.macos_build_to_macos_version(build:)
         case build
           # macOS Catalina
+        when "19E266" then
+          "10.15.4"
         when "19D76" then
           "10.15.3"
         when "19C57" then
           "10.15.2"
         when "19B88" then
           "10.15.1"
-        when "19A583", "19A602" then
+        when "19A583", "19A602", "19A603" then
           "10.15"
           # macOS Mojave
-        when "18G84", "18G103", "18G1012" then
+        when "18G84", "18G103", "18G1012", "18G95" then
           "10.14.6"
         when "18F132", "18F203" then
           "10.14.5"
