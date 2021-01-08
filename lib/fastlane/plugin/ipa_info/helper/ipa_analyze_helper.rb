@@ -79,20 +79,19 @@ module Fastlane
       # certificate
       def self.codesigned(ipa_zipfile)
         result = {}
-        tempdir = Dir::pwd + "/tmp"
+        tempdir = Dir.pwd + "/tmp"
 
         begin
           ipa_zipfile.each do |entry_first|
-            entry_first.extract(tempdir + "/" + entry_first.name){ true }
+            entry_first.extract(tempdir + "/" + entry_first.name) { true }
           end
 
           app_path = tempdir + "/Payload/ios.app"
           cmd = "codesign -dv #{app_path}"
-          stdout, stderr, status = Open3.capture3(cmd)
+          _stdout, stderr, _status = Open3.capture3(cmd)
           codesigned_flag = stderr.include?("Signed Time")
 
           result["CodeSigned"] = codesigned_flag
-
         rescue StandardError => e
           UI.user_error!(e.message)
         ensure
