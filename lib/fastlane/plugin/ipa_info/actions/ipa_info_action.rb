@@ -20,9 +20,14 @@ module Fastlane
         summary_table = Helper::IpaInfoHelper.summary_table(title: "ipa Information", rows: rows)
         puts(summary_table)
 
-        # certificate info
-        rows = Helper::IpaInfoHelper.certificate_information(provision_info_result: info_result[:provisiong_info])
+        # mobile provisioning info
+        rows = Helper::IpaInfoHelper.mobileprovisioning_information(provision_info_result: info_result[:provisiong_info])
         summary_table = Helper::IpaInfoHelper.summary_table(title: "Mobile Provision", rows: rows)
+        puts(summary_table)
+
+        # certificate info
+        rows = Helper::IpaInfoHelper.certificate_information(certificate_info_result: info_result[:certificate_info])
+        summary_table = Helper::IpaInfoHelper.summary_table(title: "Certificate", rows: rows)
         puts(summary_table)
       end
 
