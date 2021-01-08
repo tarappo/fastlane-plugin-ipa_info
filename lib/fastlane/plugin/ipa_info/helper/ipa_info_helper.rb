@@ -38,10 +38,24 @@ module Fastlane
         rows
       end
 
-      def self.certificate_information(provision_info_result:)
+      # certificate info
+      def self.certificate_information(certificate_info_result:)
+        rows = []
+        [%w[CodeSigned CodeSigned]].each do |key, name|
+          ENV["FL_#{name.upcase}"] = certificate_info_result[key].to_s
+
+          rows << [name, certificate_info_result[key].to_s]
+        end
+
+        rows
+      end
+
+      # mobileprovisioning info
+      def self.mobileprovisioning_information(provision_info_result:)
         rows = []
         [%w[TeamName TeamName],
          %w[Name ProvisioningProfileName]].each do |key, name|
+          ENV["FL_#{name.upcase}"] = provision_info_result[key]
           rows << [name, provision_info_result[key]]
         end
 
@@ -50,6 +64,9 @@ module Fastlane
           today = Date.today()
           expire_date = Date.parse(provision_info_result[key].to_s)
           count_day = (expire_date - today).numerator
+
+          ENV["FL_#{name.upcase}"] = provision_info_result[key]
+          ENV["FL_COUNT_DAY"] = count_day.to_s
 
           rows << [name, provision_info_result[key]]
           rows << ["DeadLine", "#{count_day} day"]
@@ -62,7 +79,16 @@ module Fastlane
       # @return macOS version(High Sierra or higher)
       def self.macos_build_to_macos_version(build:)
         case build
+          # macOS Big Sur
+        when "20B29", "20B50" then
+          "11.0.1"
           # macOS Catalina
+        when "19H2", "19H15" then
+          "10.15.7"
+        when "19G73", "19G2021" then
+          "10.15.6"
+        when "19F101", "19F96" then
+          "10.15.5"
         when "19E266" then
           "10.15.4"
         when "19D76" then
@@ -109,8 +135,13 @@ module Fastlane
       end
 
       def self.macos_version_to_os_name(version:)
+        major_version = version.split(".")[0].to_i
         minor_version = version.split(".")[1].to_i
         # reference https://support.apple.com/ja-jp/HT201260
+        case major_version
+        when 11
+          return  "macOS Big Sur"
+        end
         case minor_version
         when 15
           "macOS Catalina"
