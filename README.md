@@ -80,7 +80,30 @@ end
 | ExpirationDate          | 2019-03-08T00:11:53+00:00 |
 | DeadLine                | 230 day                   |
 +-------------------------+---------------------------+
+
++------------+-------+
+|    Certificate     |
++------------+-------+
+| Name       | Value |
++------------+-------+
+| CodeSigned | true  |
++------------+-------+
 ```
+
+### Environment
+All values are set in environment variables.
+
+ - FL_XCODE
+ - FL_XCODEBUILD
+ - FL_MACOS
+ - FL_BUNDLENAME
+ - FL_VERSION
+ - FL_BUILDVERSION
+ - FL_TEAMNAME
+ - FL_PROVISIONINGPROFILENAME
+ - FL_COUNT_DAY
+ - FL_CODESIGNED
+
 
 ## Run tests for this plugin
 
