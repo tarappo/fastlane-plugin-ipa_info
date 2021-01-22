@@ -11,8 +11,7 @@ fastlane add_plugin ipa_info
 ```
 
 ## About ipa_info
-
-show information of the info.plist file in the ipa file.
+show the Provisioning Profile and Certificate information in the ipa file.
 
 ## Action
 
