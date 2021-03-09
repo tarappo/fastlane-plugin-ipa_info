@@ -55,20 +55,20 @@ module Fastlane
 
       def self.available_options
         [
-            FastlaneCore::ConfigItem.new(key: :ipa_file,
-                                         env_name: 'IPA_FILE',
-                                         description: 'Path to your ipa file. Optional if you use the `gym`, `ipa` or `xcodebuild` action. ',
-                                         default_value: Actions.lane_context[SharedValues::IPA_OUTPUT_PATH] || Dir['*.ipa'].last,
-                                         optional: true,
-                                         verify_block: proc do |value|
-                                           raise "Couldn't find ipa file".red unless File.exist?(value)
-                                         end),
-            FastlaneCore::ConfigItem.new(key: :add_extract_info_plist_params,
-                                         env_name: 'ADD_EXTRACT_INFO_PLIST_PARAMS',
-                                         description: 'extract customize params for Info.plist. ',
-                                         default_value: [],
-                                         is_string: false,
-                                         optional: true)
+          FastlaneCore::ConfigItem.new(key: :ipa_file,
+                                       env_name: 'IPA_FILE',
+                                       description: 'Path to your ipa file. Optional if you use the `gym`, `ipa` or `xcodebuild` action. ',
+                                       default_value: Actions.lane_context[SharedValues::IPA_OUTPUT_PATH] || Dir['*.ipa'].last,
+                                       optional: true,
+                                       verify_block: proc do |value|
+                                         raise "Couldn't find ipa file".red unless File.exist?(value)
+                                       end),
+          FastlaneCore::ConfigItem.new(key: :add_extract_info_plist_params,
+                                       env_name: 'ADD_EXTRACT_INFO_PLIST_PARAMS',
+                                       description: 'extract customize params for Info.plist. ',
+                                       default_value: [],
+                                       is_string: false,
+                                       optional: true)
         ]
       end
 
