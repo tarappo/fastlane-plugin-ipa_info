@@ -21,6 +21,14 @@ ipa_info(
 )
 ```
 
+
+```
+ipa_info(
+  ipa_file: ${your_ipa_file_path},
+  add_extract_info_plist_params: [[ "CFBundleIdentifier", "BundleIdentifier" ]]
+)
+```
+
 ```
 lane :build do
   gym
@@ -47,6 +55,9 @@ end
 ```
 
 ### Example Result
+Info.plist Information is optional.
+
+When use add_extract_info_plist_params, display Info.plist Information.
 
 ```
 +------------+-----------------------------------+
@@ -68,6 +79,14 @@ end
 | Version      | 1.2.0 |
 | BuildVersion | 37    |
 +--------------+-------+
+
++------------------+------------------------------------+
+|                Info.plist Information                 |
++------------------+------------------------------------+
+| Name             | Value                              |
++------------------+------------------------------------+
+| BundleIdentifier | com.example.tarappo                 |
++------------------+------------------------------------+
 
 +-------------------------+---------------------------+
 |                  Mobile Provision                   |
