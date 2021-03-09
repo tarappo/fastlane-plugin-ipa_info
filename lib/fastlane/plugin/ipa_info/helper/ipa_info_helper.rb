@@ -62,7 +62,6 @@ module Fastlane
         rows
       end
 
-
       # certificate info
       def self.certificate_information(certificate_info_result:)
         rows = []
