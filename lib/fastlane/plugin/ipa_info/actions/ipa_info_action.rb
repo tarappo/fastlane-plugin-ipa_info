@@ -20,6 +20,13 @@ module Fastlane
         summary_table = Helper::IpaInfoHelper.summary_table(title: "ipa Information", rows: rows)
         puts(summary_table)
 
+        # show customize info extract Info.plist
+        unless params[:add_extract_info_plist_params].empty?
+          rows = Helper::IpaInfoHelper.customize_information(ipa_info_result: info_result[:plist_info], add_extract_info_plist_params: params[:add_extract_info_plist_params])
+          summary_table = Helper::IpaInfoHelper.summary_table(title: "Info.plist Information", rows: rows)
+          puts(summary_table)
+        end
+
         # mobile provisioning info
         rows = Helper::IpaInfoHelper.mobileprovisioning_information(provision_info_result: info_result[:provisiong_info])
         summary_table = Helper::IpaInfoHelper.summary_table(title: "Mobile Provision", rows: rows)
@@ -48,14 +55,20 @@ module Fastlane
 
       def self.available_options
         [
-          FastlaneCore::ConfigItem.new(key: :ipa_file,
-                                       env_name: 'IPA_FILE',
-                                       description: 'Path to your ipa file. Optional if you use the `gym`, `ipa` or `xcodebuild` action. ',
-                                       default_value: Actions.lane_context[SharedValues::IPA_OUTPUT_PATH] || Dir['*.ipa'].last,
-                                       optional: true,
-                                       verify_block: proc do |value|
-                                         raise "Couldn't find ipa file".red unless File.exist?(value)
-                                       end)
+            FastlaneCore::ConfigItem.new(key: :ipa_file,
+                                         env_name: 'IPA_FILE',
+                                         description: 'Path to your ipa file. Optional if you use the `gym`, `ipa` or `xcodebuild` action. ',
+                                         default_value: Actions.lane_context[SharedValues::IPA_OUTPUT_PATH] || Dir['*.ipa'].last,
+                                         optional: true,
+                                         verify_block: proc do |value|
+                                           raise "Couldn't find ipa file".red unless File.exist?(value)
+                                         end),
+            FastlaneCore::ConfigItem.new(key: :add_extract_info_plist_params,
+                                         env_name: 'ADD_EXTRACT_INFO_PLIST_PARAMS',
+                                         description: 'extract customize params for Info.plist. ',
+                                         default_value: [],
+                                         is_string: false,
+                                         optional: true)
         ]
       end
 
