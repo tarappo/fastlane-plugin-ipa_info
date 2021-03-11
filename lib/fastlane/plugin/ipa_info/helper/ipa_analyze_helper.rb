@@ -86,7 +86,7 @@ module Fastlane
             entry_first.extract(tempdir + "/" + entry_first.name) { true }
           end
 
-          app_path = tempdir + "/Payload/ios.app"
+          app_path = tempdir + "/Payload/*.app"
           cmd = "codesign -dv #{app_path}"
           _stdout, stderr, _status = Open3.capture3(cmd)
           codesigned_flag = stderr.include?("Signed Time")
