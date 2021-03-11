@@ -1,3 +1,4 @@
-lane :test do
+
+lane :test_without_params do
   ipa_info
 end
