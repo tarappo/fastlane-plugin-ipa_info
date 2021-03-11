@@ -22,13 +22,11 @@ module Fastlane
 
       # Info plist
       def self.analyze_info_plist(data)
-        tempfile = Tempfile.new(::File.basename("info_plist"))
+        tempfile = Tempfile.new(::File.basename("infoplist"))
         result = {}
 
         begin
-          File.open(tempfile.path, 'w') do |output|
-            output.puts(data)
-          end
+          File.binwrite(tempfile.path, data)
           UI.user_error!("Failed to convert binary Plist to XML") unless system("plutil -convert xml1 '#{tempfile.path}'")
 
           plist = Plist.parse_xml(tempfile.path)
@@ -40,7 +38,7 @@ module Fastlane
         rescue StandardError => e
           UI.user_error!(e.message)
         ensure
-          tempfile.close && tempfile.unlink
+          #tempfile.close && tempfile.unlink
         end
 
         result
@@ -48,13 +46,11 @@ module Fastlane
 
       # mobileprovisioning
       def self.analyze_mobileprovisioning(data)
-        tempfile = Tempfile.new(::File.basename("mobile_provisioning"))
+        tempfile = Tempfile.new(::File.basename("mobileprovisioning"))
         result = {}
 
         begin
-          File.open(tempfile.path, 'w') do |output|
-            output.puts(data)
-          end
+          File.binwrite(tempfile.path, data)
           mobileprovisioning = Plist.parse_xml(`security cms -D -i #{tempfile.path}`)
           mobileprovisioning.each do |key, value|
             next if key == 'DeveloperCertificates'
@@ -113,7 +109,7 @@ module Fastlane
 
       # return app folder path
       def self.find_app_folder_path_in_ipa(ipa_path)
-        return "Payload/#{File.basename(ipa_path, File.extname(ipa_path))}.app"
+        return "Payload/*.app"
       end
 
       private_class_method :find_app_folder_path_in_ipa
