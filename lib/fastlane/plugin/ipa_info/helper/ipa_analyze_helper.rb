@@ -38,7 +38,7 @@ module Fastlane
         rescue StandardError => e
           UI.user_error!(e.message)
         ensure
-          #tempfile.close && tempfile.unlink
+          tempfile.close && tempfile.unlink
         end
 
         result
