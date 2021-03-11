@@ -78,7 +78,8 @@ module Fastlane
         result = {}
 
         begin
-          data, error, = Open3.capture3("unzip -d #{tempdir} #{ipa_path}")
+          _, error, = Open3.capture3("unzip -d #{tempdir} #{ipa_path}")
+          UI.user_error!(error) unless error.empty?
 
           cmd = "codesign -dv #{tempdir}/#{app_folder_path}"
           _stdout, stderr, _status = Open3.capture3(cmd)
@@ -110,13 +111,12 @@ module Fastlane
         data
       end
 
-      private
-
       # return app folder path
       def self.find_app_folder_path_in_ipa(ipa_path)
         return "Payload/#{File.basename(ipa_path, File.extname(ipa_path))}.app"
       end
 
+      private_class_method :find_app_folder_path_in_ipa
     end
   end
 end
