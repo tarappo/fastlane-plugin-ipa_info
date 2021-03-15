@@ -10,6 +10,7 @@ module Fastlane
   module Helper
     class IpaAnalyzeHelper
       def self.analyze(ipa_path)
+        # TODO: need to refactoring => only mkdir temp_dir
         return {
             provisiong_info: self.analyze_file_with_unzip(ipa_path, "embedded.mobileprovision"),
             plist_info: self.analyze_file_with_unzip(ipa_path, "Info.plist"),
@@ -68,6 +69,7 @@ module Fastlane
         cmd = "codesign -dv #{temp_file_path}"
         _stdout, stderr, _status = Open3.capture3(cmd)
         codesigned_flag = stderr.include?("Signed Time")
+
         result["CodeSigned"] = codesigned_flag
 
         return result
@@ -78,12 +80,13 @@ module Fastlane
         tempdir = Dir.pwd + "/tmp-#{SecureRandom.hex(10)}"
         target_file_path = find_app_folder_path_in_ipa(ipa_path) + "/#{target_file_name}"
         temp_file_path = "#{tempdir}/#{target_file_name}"
+        original_file_path = "#{tempdir}/#{target_file_path}"
 
         begin
           _, error, = Open3.capture3("unzip -o -d #{tempdir} #{ipa_path}")
           UI.user_error!(error) unless error.empty?
 
-          copy_cmd = "#{tempdir}/#{target_file_path} #{temp_file_path}"
+          copy_cmd = "#{original_file_path} #{temp_file_path}"
 
           case target_file_name
           when "Info.plist" then
@@ -93,7 +96,7 @@ module Fastlane
             self.copy_file(copy_cmd)
             return self.analyze_mobileprovisioning(temp_file_path)
           when "" then
-            return self.codesigned(target_file_path)
+            return self.codesigned(original_file_path)
           end
         rescue StandardError => e
           FileUtils.rm_r(tempdir)
